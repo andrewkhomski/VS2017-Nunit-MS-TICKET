@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('packages\NUnit.3.10.1\build\NUnit.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D36B8A4B-246F-409D-8AD2-A6324E8140C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SeleniumTest</RootNamespace>
+    <AssemblyName>SeleniumTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+	<DebugType Condition="'$(TargetFramework)' != '' AND '$(TargetFramework)' != 'netcoreapp1.0'">Full</DebugType>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>CompileReferences\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>CompileReferences\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>CompileReferences\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\NUnit.3.10.1\lib\net40\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>CompileReferences\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>CompileReferences\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>CompileReferences\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>CompileReferences\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Allergy_Console\AllergyDocument.cs" />
+    <Compile Include="Allergy_Console\AllergyFields.cs" />
+    <Compile Include="Allergy_Console\TestScripts\AllergyDocumentTests_Console.cs" />
+    <Compile Include="ArrivalInfo_Console\ArrivalInfoDocument.cs" />
+    <Compile Include="ArrivalInfo_Console\ArrivalInfoFields.cs" />
+    <Compile Include="ArrivalInfo_Console\TestScripts\ArrivalInfoDocumentTests_Console.cs" />
+    <Compile Include="Clinician\ClinicianDocument.cs" />
+    <Compile Include="Clinician\ClinicianFields.cs" />
+    <Compile Include="Clinician\TestScripts\ClinicianDocumentTests_Console.cs" />
+    <Compile Include="ComplexPalliativePatientAssessment_Console\ComplexPalliativePatientAssessmentDocument.cs" />
+    <Compile Include="ComplexPalliativePatientAssessment_Console\ComplexPalliativePatientAssessmentFields.cs" />
+    <Compile Include="ComplexPalliativePatientAssessment_Console\TestScripts\ComplexPalliativePatientAssessmentDocumentTests_Console.cs" />
+    <Compile Include="DebridementReport_Console\DebridementReportDocument.cs" />
+    <Compile Include="DebridementReport_Console\DebridementReportFields.cs" />
+    <Compile Include="DebridementReport_Console\TestScripts\DebridementReportDocumentTests_Console.cs" />
+    <Compile Include="EducationAssessment_Console\EducationAssessmentDocument.cs" />
+    <Compile Include="EducationAssessment_Console\EducationAssessmentFields.cs" />
+    <Compile Include="EducationAssessment_Console\TestScripts\EducationAssessmentDocumentTests_Console.cs" />
+    <Compile Include="FallRiskAssessment_Console\FallRiskAssessmentDocument.cs" />
+    <Compile Include="FallRiskAssessment_Console\FallRiskAssessmentFields.cs" />
+    <Compile Include="FallRiskAssessment_Console\TestScripts\FallRiskAssessmentDocumentTests_Console.cs" />
+    <Compile Include="FootAssessment_Console\FootAssessmentDocument.cs" />
+    <Compile Include="FootAssessment_Console\FootAssessmentFields.cs" />
+    <Compile Include="FootAssessment_Console\TestScripts\FootAssessmentDocumentTests_Console.cs" />
+    <Compile Include="GeneralVisitNotes_Console\GeneralVisitNotesDocument.cs" />
+    <Compile Include="GeneralVisitNotes_Console\GeneralVisitNotesFields.cs" />
+    <Compile Include="GeneralVisitNotes_Console\TestScripts\GeneralVisitNotesDocumentTests_Console.cs" />
+    <Compile Include="HBORiskAssessment_Console\HBORiskAssessmentDocument.cs" />
+    <Compile Include="HBORiskAssessment_Console\HBORiskAssessmentFields.cs" />
+    <Compile Include="HBORiskAssessment_Console\TestScripts\HBORiskAssessmentDocumentTests_Console.cs" />
+    <Compile Include="HBOSafetyChecklist_Console\HBOSafetyChecklistDocument.cs" />
+    <Compile Include="HBOSafetyChecklist_Console\HBOSafetyChecklistFields.cs" />
+    <Compile Include="HBOSafetyChecklist_Console\TestScripts\HBOSafetyChecklistDocumentTests_Console.cs" />
+    <Compile Include="HBOScreening_Console\HBOScreeningDocument.cs" />
+    <Compile Include="HBOScreening_Console\HBOScreeningFields.cs" />
+    <Compile Include="HBOScreening_Console\TestScripts\HBOScreeningDocumentTests_Console.cs" />
+    <Compile Include="HBOTreatmentCourse_Console\HBOTreatmentCourseDocument.cs" />
+    <Compile Include="HBOTreatmentCourse_Console\HBOTreatmentCourseFields.cs" />
+    <Compile Include="HBOTreatmentCourse_Console\TestScripts\HBOTreatmentCourseDocumentTests_Console.cs" />
+    <Compile Include="HBOTreatment_Console\HBOTreatmentDocument.cs" />
+    <Compile Include="HBOTreatment_Console\HBOTreatmentFields.cs" />
+    <Compile Include="HBOTreatment_Console\TestScripts\HBOTreatmentDocumentTests_Console.cs" />
+    <Compile Include="HROS_Console\HROSDocument.cs" />
+    <Compile Include="HROS_Console\HROSFields.cs" />
+    <Compile Include="HROS_Console\TestScripts\HROSDocumentTests_Console.cs" />
+    <Compile Include="Immunizations_Console\ImmunizationsDocument.cs" />
+    <Compile Include="Immunizations_Console\ImmunizationsFields.cs" />
+    <Compile Include="Immunizations_Console\TestScripts\ImmunizationsDocumentTests_Console.cs" />
+    <Compile Include="LowerExtremityAssessment_Console\LowerExtremityAssessmentDocument.cs" />
+    <Compile Include="LowerExtremityAssessment_Console\LowerExtremityAssessmentFields.cs" />
+    <Compile Include="LowerExtremityAssessment_Console\TestScripts\LowerExtremityAssessmentDocumentTests_Console.cs" />
+    <Compile Include="NutritionRiskAssessment_Console\NutritionRiskAssessmentDocument.cs" />
+    <Compile Include="NutritionRiskAssessment_Console\NutritionRiskAssessmentFields.cs" />
+    <Compile Include="NutritionRiskAssessment_Console\TestScripts\NutritionRiskAssessmentDocumentTests_Console.cs" />
+    <Compile Include="PainAssessment_Console\PainAssessmentDocument.cs" />
+    <Compile Include="PainAssessment_Console\PainAssessmentFields.cs" />
+    <Compile Include="PainAssessment_Console\TestScripts\PainAssessmentDocumentTests_Console.cs" />
+    <Compile Include="PatientCaregiverEducation_Console\PatientCaregiverEducationDocument.cs" />
+    <Compile Include="PatientCaregiverEducation_Console\PatientCaregiverEducationFields.cs" />
+    <Compile Include="PatientCaregiverEducation_Console\TestScripts\PatientCaregiverEducationDocumentTests_Console.cs" />
+    <Compile Include="ProcedureCompressionTherapy_Console\ProcedureCompressionTherapyDocument.cs" />
+    <Compile Include="ProcedureCompressionTherapy_Console\ProcedureCompressionTherapyFields.cs" />
+    <Compile Include="ProcedureCompressionTherapy_Console\TestScripts\ProcedureCompressionTherapyDocumentTests_Console.cs" />
+    <Compile Include="ProcedureCTBP_Console\ProcedureCTBPDocument.cs" />
+    <Compile Include="ProcedureCTBP_Console\ProcedureCTBPFields.cs" />
+    <Compile Include="ProcedureCTBP_Console\TestScripts\ProcedureCTBPDocumentTests_Console.cs" />
+    <Compile Include="ProcedureDebridement_Console\ProcedureDebridementDocument.cs" />
+    <Compile Include="ProcedureDebridement_Console\ProcedureDebridementFields.cs" />
+    <Compile Include="ProcedureDebridement_Console\TestScripts\ProcedureDebridementDocumentTests_Console.cs" />
+    <Compile Include="ProcedureIncisionAndDrainage_Console\ProcedureIncisionAndDrainageDocument.cs" />
+    <Compile Include="ProcedureIncisionAndDrainage_Console\ProcedureIncisionAndDrainageFields.cs" />
+    <Compile Include="ProcedureIncisionAndDrainage_Console\TestScripts\ProcedureIncisionAndDrainageDocumentTests_Console.cs" />
+    <Compile Include="ProcedureTopicalGrowthFactor_Console\ProcedureTopicalGrowthFactorDocument.cs" />
+    <Compile Include="ProcedureTopicalGrowthFactor_Console\ProcedureTopicalGrowthFactorFields.cs" />
+    <Compile Include="ProcedureTopicalGrowthFactor_Console\TestScripts\ProcedureTopicalGrowthFactorDocumentTests_Console.cs" />
+    <Compile Include="ProcedureTotalContactCast_Console\ProcedureTotalContactCastDocument.cs" />
+    <Compile Include="ProcedureTotalContactCast_Console\ProcedureTotalContactCastFields.cs" />
+    <Compile Include="ProcedureTotalContactCast_Console\TestScripts\ProcedureTotalContactCastDocumentTests_Console.cs" />
+    <Compile Include="Procedure_Console\ProcedureDocument.cs" />
+    <Compile Include="Procedure_Console\ProcedureFields.cs" />
+    <Compile Include="SkinPerfusionPressure_Console\SkinPerfusionPressureDocument.cs" />
+    <Compile Include="SkinPerfusionPressure_Console\SkinPerfusionPressureFields.cs" />
+    <Compile Include="SkinPerfusionPressure_Console\TestScripts\SkinPerfusionPressureDocumentTests_Console.cs" />
+    <Compile Include="Superbill_Console\SuperbillDocument.cs" />
+    <Compile Include="Superbill_Console\SuperbillFields.cs" />
+    <Compile Include="Superbill_Console\TestScripts\SuperbillDocumentTests_Console.cs" />
+    <Compile Include="TCOM_Console\TCOMDocument.cs" />
+    <Compile Include="TCOM_Console\TCOMFields.cs" />
+    <Compile Include="TCOM_Console\TestScripts\TCOMDocumentTests_Console.cs" />
+    <Compile Include="TreatmentNotes_Console\TestScripts\TreatmentNotesDocumentTests_Console.cs" />
+    <Compile Include="TreatmentNotes_Console\TreatmentNotesDocument.cs" />
+    <Compile Include="TreatmentNotes_Console\TreatmentNotesFields.cs" />
+    <Compile Include="Utilities\DocumentExecutor.cs" />
+    <Compile Include="Utilities\Browser.cs" />
+    <Compile Include="Utilities\PatientData.cs" />
+    <Compile Include="VisitDischargeInformation_Console\TestScripts\VisitDischargeInformationDocumentTests_Console.cs" />
+    <Compile Include="VisitDischargeInformation_Console\VisitDischargeInformationDocument.cs" />
+    <Compile Include="VisitDischargeInformation_Console\VisitDischargeInformationFields.cs" />
+    <Compile Include="WoundAssessment_Console\TestScripts\WoundAssessmentDocumentTests_Console.cs" />
+    <Compile Include="WoundAssessment_Console\WoundAssessmentDocument.cs" />
+    <Compile Include="WoundAssessment_Console\WoundAssessmentFields.cs" />
+    <Compile Include="HPI_Console\HPIDocument.cs" />
+    <Compile Include="HPI_Console\HPIFields.cs" />
+    <Compile Include="HPI_Console\TestScripts\HPIDocumentTests_Console.cs" />
+    <Compile Include="Utilities\Reporting.cs" />
+    <Compile Include="Utilities\DocumentBase.cs" />
+    <Compile Include="UserCase Tests\TestScripts\UserCase_Test.cs" />
+    <Compile Include="Facility\FacilityDocument.cs" />
+    <Compile Include="Facility\FacilityFields.cs" />
+    <Compile Include="Facility\TestScripts\FacilityTests.cs" />
+    <Compile Include="Insurance\InsuranceDocument.cs" />
+    <Compile Include="Insurance\InsuranceFields.cs" />
+    <Compile Include="Insurance\TestScripts\InsuranceDocumentTests_Console.cs" />
+    <Compile Include="MyAccount_Console\MyAccountDocument.cs" />
+    <Compile Include="MyAccount_Console\MyAccountFields.cs" />
+    <Compile Include="MyAccount_Console\TestScripts\MyAccountDocumentTests_Console.cs" />
+    <Compile Include="Physician\PhysicianDocument.cs" />
+    <Compile Include="Physician\PhysicianFields.cs" />
+    <Compile Include="Physician\TestScripts\PhysicianDocumentTests_Console.cs" />
+    <Compile Include="User\UserDocument.cs" />
+    <Compile Include="User\UserFields_FacilityAdmin.cs" />
+    <Compile Include="User\TestScripts\AddUserFacilityAdminEditorTests_Console.cs" />
+    <Compile Include="Utilities\ConsoleConversion.cs" />
+    <Compile Include="Utilities\ElementHelper.cs" />
+    <Compile Include="Utilities\GetFieldValues.cs" />
+    <Compile Include="Utilities\TestSettings.cs" />
+    <Compile Include="Utilities\TextFieldObject.cs" />
+    <Compile Include="VitalSigns_Console\TestScripts\VitalSignsDocumentTests_Console.cs" />
+    <Compile Include="VitalSigns_Console\VitalSignsDocument.cs" />
+    <Compile Include="VitalSigns_Console\VitalSignsFields.cs" />
+    <Compile Include="WebDriverExtensions.cs" />
+    <Compile Include="Login\Login.cs" />
+    <Compile Include="Patient\PatientDocument.cs" />
+    <Compile Include="Patient\PatientFields.cs" />
+    <Compile Include="Patient\PatientVisitFields.cs" />
+    <Compile Include="Utilities\AssertionItems.cs" />
+    <Compile Include="Utilities\Dates.cs" />
+    <Compile Include="Utilities\EnterFieldValue.cs" />
+    <Compile Include="Utilities\Facility Settings\WoundAssessmentSettings.cs" />
+    <Compile Include="Utilities\FileReader.cs" />
+    <Compile Include="Utilities\WindowNavigation.cs" />
+    <Compile Include="Patient\PatientVisit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WoundGrid_Console\TestScripts\WoundGridDocumentTests_Console.cs" />
+    <Compile Include="WoundGrid_Console\WoundGridDocument.cs" />
+    <Compile Include="WoundGrid_Console\WoundGridFields.cs" />
+    <Compile Include="Wound_Console\TestScripts\WoundDocumentTests_Console.cs" />
+    <Compile Include="Wound_Console\WoundDocument.cs" />
+    <Compile Include="Wound_Console\WoundFields.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Allergy_Console\AllergyDocument Templates\AllergyDocument-Template.csv" />
+    <None Include="ArrivalInfo_Console\ArrivalInfoDocument Data\ArrivalInfoDocument1.csv" />
+    <None Include="ArrivalInfo_Console\ArrivalInfoDocument Data\ArrivalInfoDocument2.csv" />
+    <None Include="ArrivalInfo_Console\ArrivalInfoDocument Templates\ArrivalInfoDocument-Template.csv" />
+    <None Include="ComplexPalliativePatientAssessment_Console\ComplexPalliativePatientAssessmentDocument Data\ComplexPalliativePatientAssessmentDocument1.csv" />
+    <None Include="ComplexPalliativePatientAssessment_Console\ComplexPalliativePatientAssessmentDocument Data\ComplexPalliativePatientAssessmentDocument2.csv" />
+    <None Include="ComplexPalliativePatientAssessment_Console\ComplexPalliativePatientAssessmentDocument Templates\ComplexPalliativePatientAssessmentDocument-Template.csv" />
+    <None Include="DebridementReport_Console\DebridementReportDocument Data\DebridementReportDocument1.csv" />
+    <None Include="DebridementReport_Console\DebridementReportDocument Data\DebridementReportDocument2.csv" />
+    <None Include="DebridementReport_Console\DebridementReportDocument Templates\DebridementReportDocument-Template.csv" />
+    <None Include="EducationAssessment_Console\EducationAssessmentDocument Data\EducationAssessmentDocument1.csv" />
+    <None Include="EducationAssessment_Console\EducationAssessmentDocument Data\EducationAssessmentDocument2.csv" />
+    <None Include="EducationAssessment_Console\EducationAssessmentDocument Templates\EducationAssessmentDocument-Template.csv" />
+    <None Include="Allergy_Console\AllergyDocument Data\AllergyDocument1.csv" />
+    <None Include="Allergy_Console\AllergyDocument Data\AllergyDocument2.csv" />
+    <None Include="FallRiskAssessment_Console\FallRiskAssessmentDocument Data\FallRiskAssessmentDocument1.csv" />
+    <None Include="FallRiskAssessment_Console\FallRiskAssessmentDocument Data\FallRiskAssessmentDocument2.csv" />
+    <None Include="FallRiskAssessment_Console\FallRiskAssessmentDocument Templates\FallRiskAssessmentDocument-Template.csv" />
+    <None Include="FootAssessment_Console\FootAssessmentDocument Data\FootAssessmentDocument1.csv" />
+    <None Include="FootAssessment_Console\FootAssessmentDocument Data\FootAssessmentDocument2.csv" />
+    <None Include="FootAssessment_Console\FootAssessmentDocument Templates\FootAssessmentDocument-Template.csv" />
+    <None Include="GeneralVisitNotes_Console\GeneralVisitNotesDocument Data\GeneralVisitNotesDocument1.csv" />
+    <None Include="GeneralVisitNotes_Console\GeneralVisitNotesDocument Data\GeneralVisitNotesDocument2.csv" />
+    <None Include="GeneralVisitNotes_Console\GeneralVisitNotesDocument Templates\GeneralVisitNotesDocument-Template.csv" />
+    <None Include="HBORiskAssessment_Console\HBORiskAssessmentDocument Data\HBORiskAssessmentDocument1.csv" />
+    <None Include="HBORiskAssessment_Console\HBORiskAssessmentDocument Data\HBORiskAssessmentDocument2.csv" />
+    <None Include="HBORiskAssessment_Console\HBORiskAssessmentDocument Templates\HBORiskAssessmentDocument-Template.csv" />
+    <None Include="HBOSafetyChecklist_Console\HBOSafetyChecklistDocument Data\HBOSafetyChecklistDocument1.csv" />
+    <None Include="HBOSafetyChecklist_Console\HBOSafetyChecklistDocument Data\HBOSafetyChecklistDocument2.csv" />
+    <None Include="HBOSafetyChecklist_Console\HBOSafetyChecklistDocument Templates\HBOSafetyChecklistDocument-Template.csv" />
+    <None Include="HBOScreening_Console\HBOScreeningDocument Data\HBOScreeningDocument1.csv" />
+    <None Include="HBOScreening_Console\HBOScreeningDocument Data\HBOScreeningDocument2.csv" />
+    <None Include="HBOScreening_Console\HBOScreeningDocument Templates\HBOScreeningDocument-Template.csv" />
+    <None Include="HBOTreatmentCourse_Console\HBOTreatmentCourseDocument Data\HBOTreatmentCourseDocument1.csv" />
+    <None Include="HBOTreatmentCourse_Console\HBOTreatmentCourseDocument Data\HBOTreatmentCourseDocument2.csv" />
+    <None Include="HBOTreatmentCourse_Console\HBOTreatmentCourseDocument Templates\HBOTreatmentCourseDocument-Template.csv" />
+    <None Include="HBOTreatment_Console\HBOTreatmentDocument Data\HBOTreatmentDocument1.csv" />
+    <None Include="HBOTreatment_Console\HBOTreatmentDocument Data\HBOTreatmentDocument2.csv" />
+    <None Include="HBOTreatment_Console\HBOTreatmentDocument Templates\HBOTreatmentDocument-Template.csv" />
+    <None Include="HPI_Console\HPIDocument Templates\HPIDocument-Template.csv" />
+    <None Include="HROS_Console\HROSDocument Data\HROSDocument1.csv" />
+    <None Include="HROS_Console\HROSDocument Data\HROSDocument2.csv" />
+    <None Include="HROS_Console\HROSDocument Templates\HROSDocument-Template.csv" />
+    <None Include="Immunizations_Console\ImmunizationsDocument Data\ImmunizationsDocument1.csv" />
+    <None Include="Immunizations_Console\ImmunizationsDocument Data\ImmunizationsDocument2.csv" />
+    <None Include="Immunizations_Console\ImmunizationsDocument Templates\ImmunizationsDocument-Template.csv" />
+    <None Include="Login\Login Data\Login-QA.csv" />
+    <None Include="LowerExtremityAssessment_Console\LowerExtremityAssessmentDocument Data\LowerExtremityAssessmentDocument1.csv" />
+    <None Include="LowerExtremityAssessment_Console\LowerExtremityAssessmentDocument Data\LowerExtremityAssessmentDocument2.csv" />
+    <None Include="LowerExtremityAssessment_Console\LowerExtremityAssessmentDocument Templates\LowerExtremityAssessmentDocument-Template.csv" />
+    <None Include="NutritionRiskAssessment_Console\NutritionRiskAssessmentDocument Data\NutritionRiskAssessmentDocument1.csv" />
+    <None Include="NutritionRiskAssessment_Console\NutritionRiskAssessmentDocument Data\NutritionRiskAssessmentDocument2.csv" />
+    <None Include="NutritionRiskAssessment_Console\NutritionRiskAssessmentDocument Templates\NutritionRiskAssessmentDocument-Template.csv" />
+    <None Include="packages.config" />
+    <None Include="PainAssessment_Console\PainAssessmentDocument Data\PainAssessmentDocument1.csv" />
+    <None Include="PainAssessment_Console\PainAssessmentDocument Data\PainAssessmentDocument2.csv" />
+    <None Include="PainAssessment_Console\PainAssessmentDocument Templates\PainAssessmentDocument-Template.csv" />
+    <None Include="PatientCaregiverEducation_Console\PatientCaregiverEducationDocument Data\PatientCaregiverEducationDocument1.csv" />
+    <None Include="PatientCaregiverEducation_Console\PatientCaregiverEducationDocument Data\PatientCaregiverEducationDocument2.csv" />
+    <None Include="PatientCaregiverEducation_Console\PatientCaregiverEducationDocument Templates\PatientCaregiverEducationDocument-Template.csv" />
+    <None Include="Patient\Patient Data\PatientDataOldPreReg.csv" />
+    <None Include="Patient\Patient Data\PatientVisitOldPreReg.csv" />
+    <None Include="ProcedureCompressionTherapy_Console\ProcedureCompressionTherapyDocument Data\ProcedureCompressionTherapyDocument1.csv" />
+    <None Include="ProcedureCompressionTherapy_Console\ProcedureCompressionTherapyDocument Data\ProcedureCompressionTherapyDocument2.csv" />
+    <None Include="ProcedureCompressionTherapy_Console\ProcedureCompressionTherapyDocument Templates\ProcedureCompressionTherapyDocument-Template.csv" />
+    <None Include="ProcedureCTBP_Console\ProcedureCTBPDocument Data\ProcedureCTBPDocument1.csv" />
+    <None Include="ProcedureCTBP_Console\ProcedureCTBPDocument Data\ProcedureCTBPDocument2.csv" />
+    <None Include="ProcedureCTBP_Console\ProcedureCTBPDocument Templates\ProcedureCTBPDocument-Template.csv" />
+    <None Include="ProcedureDebridement_Console\ProcedureDebridementDocument Data\ProcedureDebridementDocument1.csv" />
+    <None Include="ProcedureDebridement_Console\ProcedureDebridementDocument Data\ProcedureDebridementDocument2.csv" />
+    <None Include="ProcedureDebridement_Console\ProcedureDebridementDocument Templates\ProcedureDebridementDocument-Template.csv" />
+    <None Include="ProcedureIncisionAndDrainage_Console\ProcedureIncisionAndDrainageDocument Data\ProcedureIncisionAndDrainageDocument1.csv" />
+    <None Include="ProcedureIncisionAndDrainage_Console\ProcedureIncisionAndDrainageDocument Data\ProcedureIncisionAndDrainageDocument2.csv" />
+    <None Include="ProcedureIncisionAndDrainage_Console\ProcedureIncisionAndDrainageDocument Templates\ProcedureIncisionAndDrainageDocument-Template.csv" />
+    <None Include="ProcedureTopicalGrowthFactor_Console\ProcedureTopicalGrowthFactorDocument Data\ProcedureTopicalGrowthFactorDocument1.csv" />
+    <None Include="ProcedureTopicalGrowthFactor_Console\ProcedureTopicalGrowthFactorDocument Data\ProcedureTopicalGrowthFactorDocument2.csv" />
+    <None Include="ProcedureTopicalGrowthFactor_Console\ProcedureTopicalGrowthFactorDocument Templates\ProcedureTopicalGrowthFactorDocument-Template.csv" />
+    <None Include="ProcedureTotalContactCast_Console\ProcedureTotalContactCastDocument Data\ProcedureTotalContactCastDocument1.csv" />
+    <None Include="ProcedureTotalContactCast_Console\ProcedureTotalContactCastDocument Data\ProcedureTotalContactCastDocument2.csv" />
+    <None Include="ProcedureTotalContactCast_Console\ProcedureTotalContactCastDocument Templates\ProcedureTotalContactCastDocument-Template.csv" />
+    <None Include="Procedure_Console\ProcedureDocument Data\ProcedureDocument1.csv" />
+    <None Include="Procedure_Console\ProcedureDocument Data\ProcedureDocument2.csv" />
+    <None Include="Procedure_Console\ProcedureDocument Templates\ProcedureDocument-Template.csv" />
+    <None Include="SkinPerfusionPressure_Console\SkinPerfusionPressureDocument Data\SkinPerfusionPressureDocument1.csv" />
+    <None Include="SkinPerfusionPressure_Console\SkinPerfusionPressureDocument Data\SkinPerfusionPressureDocument2.csv" />
+    <None Include="SkinPerfusionPressure_Console\SkinPerfusionPressureDocument Templates\SkinPerfusionPressureDocument-Template.csv" />
+    <None Include="Superbill_Console\SuperbillDocument Data\SuperbillDocument1.csv" />
+    <None Include="Superbill_Console\SuperbillDocument Data\SuperbillDocument2.csv" />
+    <None Include="Superbill_Console\SuperbillDocument Templates\SuperbillDocument-Template.csv" />
+    <None Include="TCOM_Console\TCOMDocument Data\TCOMDocument1.csv" />
+    <None Include="TCOM_Console\TCOMDocument Data\TCOMDocument2.csv" />
+    <None Include="TCOM_Console\TCOMDocument Templates\TCOMDocument-Template.csv" />
+    <None Include="TreatmentNotes_Console\TreatmentNotesDocument Data\TreatmentNotesDocument1.csv" />
+    <None Include="TreatmentNotes_Console\TreatmentNotesDocument Data\TreatmentNotesDocument2.csv" />
+    <None Include="TreatmentNotes_Console\TreatmentNotesDocument Templates\TreatmentNotesDocument-Template.csv" />
+    <None Include="VisitDischargeInformation_Console\VisitDischargeInformationDocument Data\VisitDischargeInformationDocument1.csv" />
+    <None Include="VisitDischargeInformation_Console\VisitDischargeInformationDocument Data\VisitDischargeInformationDocument2.csv" />
+    <None Include="VisitDischargeInformation_Console\VisitDischargeInformationDocument Templates\VisitDischargeInformationDocument-Template.csv" />
+    <None Include="WoundAssessment_Console\WoundAssessmentDocument Data\WoundAssessmentDocument1.csv" />
+    <None Include="WoundAssessment_Console\WoundAssessmentDocument Data\WoundAssessmentDocument2.csv" />
+    <None Include="WoundAssessment_Console\WoundAssessmentDocument Templates\WoundAssessmentDocument-Template.csv" />
+    <None Include="UserCase Tests\UserCase Data\AllergyDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\AllergyDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\ArrivalInfoDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\ArrivalInfoDocument2.csv" />
+    <None Include="Clinician\Clinician Data\ClinicianDocument2.csv" />
+    <None Include="Clinician\Clinician Data\ClinicianDocument1.csv" />
+    <None Include="Clinician\ClinicianDocument Templates\ClinicianDocument-Template.csv" />
+    <None Include="UserCase Tests\UserCase Data\ClinicianDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\ClinicianDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\EducationAssessmentDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\EducationAssessmentDocument2.csv" />
+    <None Include="Facility\Facility Data\FacilityData1.csv" />
+    <None Include="Facility\Facility Data\SimpleFacilityData.csv" />
+    <None Include="Facility\Facility Templates\FacilityDocument-Template.csv" />
+    <None Include="Insurance\Insurance Data\InsuranceData2.csv" />
+    <None Include="Insurance\Insurance Data\InsuranceData1.csv" />
+    <None Include="Insurance\InsuranceDocument Templates\InsuranceDocument-Template.csv" />
+    <None Include="MyAccount_Console\MyAccountDocument Data\MyAccountDocument1.csv" />
+    <None Include="MyAccount_Console\MyAccountDocument Data\MyAccountDocument2.csv" />
+    <None Include="MyAccount_Console\MyAccountDocument Templates\MyAccountDocument-Template.csv" />
+    <None Include="Patient\Patient Data\PatientData2.csv" />
+    <None Include="Patient\Patient Data\PatientData1.csv" />
+    <None Include="Patient\Patient Data\PatientVisit1.csv" />
+    <None Include="Patient\Patient Data\PatientVisit2.csv" />
+    <None Include="Physician\Physician Data\PhysicianDocument1.csv" />
+    <None Include="Physician\Physician Data\PhysicianDocument2.csv" />
+    <None Include="Physician\PhysicianDocument Templates\PhysicianDocument-Template.csv" />
+    <None Include="UserCase Tests\UserCase Data\FallRiskAssessmentDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\FallRiskAssessmentDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\HPIDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\HPIDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\InsuranceData1.csv" />
+    <None Include="UserCase Tests\UserCase Data\InsuranceData2.csv" />
+    <None Include="UserCase Tests\UserCase Data\MyAccountDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\MyAccountDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\PhysicianDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\PhysicianDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\VitalSignsDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\VitalSignsDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundAssessmentDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundAssessmentDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundDocument2.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundGridDocument1.csv" />
+    <None Include="UserCase Tests\UserCase Data\WoundGridDocument2.csv" />
+    <None Include="User\Data Templates\UserEditor_FacilityAdmin-Template.csv" />
+    <None Include="HPI_Console\HPIDocument Data\HPIDocument1.csv" />
+    <None Include="HPI_Console\HPIDocument Data\HPIDocument2.csv" />
+    <None Include="HPI_Console\HPIEditor Templates\HPIEditor-Template.csv" />
+    <None Include="Login\Login Data\Login-Internal.csv" />
+    <None Include="Login\Login Data\Login-Production.csv" />
+    <None Include="Login\Login Data\Login.csv" />
+    <None Include="User\User Data\UserData_FacilityAdmin2.csv" />
+    <None Include="User\User Data\UserData_FacilityAdmin.csv" />
+    <None Include="VitalSigns_Console\VitalSignsDocument Data\VitalSignsDocument1.csv" />
+    <None Include="VitalSigns_Console\VitalSignsDocument Data\VitalSignsDocument2.csv" />
+    <None Include="VitalSigns_Console\VitalSignsDocument Templates\VitalSignsDocument-Template.csv" />
+    <None Include="WoundGrid_Console\WoundGridDocument Data\WoundGridDocument1.csv" />
+    <None Include="WoundGrid_Console\WoundGridDocument Data\WoundGridDocument2.csv" />
+    <None Include="WoundGrid_Console\WoundGridDocument Templates\WoundGridDocument-Template.csv" />
+    <None Include="Wound_Console\WoundDocument Data\WoundDocument1.csv" />
+    <None Include="Wound_Console\WoundDocument Data\WoundDocument2.csv" />
+    <None Include="Wound_Console\WoundDocument Templates\WoundDocument-Template.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patient\Data Templates\" />
+    <Folder Include="Patient\Patient Data Tests\" />
+    <Folder Include="Patient\TestScripts\" />
+    <Folder Include="Procedure_Console\TestScripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChromeServer\chromedriver.exe" />
+    <Content Include="CompileReferences\Castle.Core.dll" />
+    <Content Include="CompileReferences\Ionic.Zip.dll" />
+    <Content Include="CompileReferences\Newtonsoft.Json.dll" />
+    <Content Include="CompileReferences\nunit-console-runner.dll" />
+    <Content Include="CompileReferences\nunit-gui-runner.dll" />
+    <Content Include="CompileReferences\nunit.core.dll" />
+    <Content Include="CompileReferences\nunit.core.interfaces.dll" />
+    <Content Include="CompileReferences\nunit.framework.dll" />
+    <Content Include="CompileReferences\nunit.framework.xml" />
+    <Content Include="CompileReferences\nunit.mocks.dll" />
+    <Content Include="CompileReferences\nunit.uiexception.dll" />
+    <Content Include="CompileReferences\nunit.uikit.dll" />
+    <Content Include="CompileReferences\nunit.util.dll" />
+    <Content Include="CompileReferences\Selenium.WebDriverBackedSelenium.dll" />
+    <Content Include="CompileReferences\Selenium.WebDriverBackedSelenium.pdb" />
+    <Content Include="CompileReferences\Selenium.WebDriverBackedSelenium.xml" />
+    <Content Include="CompileReferences\SeleniumTest.VisualState.xml" />
+    <Content Include="CompileReferences\ThoughtWorks.Selenium.Core.dll" />
+    <Content Include="CompileReferences\ThoughtWorks.Selenium.Core.pdb" />
+    <Content Include="CompileReferences\ThoughtWorks.Selenium.Core.xml" />
+    <Content Include="CompileReferences\WebDriver.dll" />
+    <Content Include="CompileReferences\WebDriver.pdb" />
+    <Content Include="CompileReferences\WebDriver.Support.dll" />
+    <Content Include="CompileReferences\WebDriver.Support.pdb" />
+    <Content Include="CompileReferences\WebDriver.Support.xml" />
+    <Content Include="CompileReferences\WebDriver.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="InternetExplorerServer\IEDriverServer.exe" />
+    <Content Include="InternetExplorerServer\Old\IEDriverServer.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.10.1\build\NUnit.props'))" />
+    <Error Condition="!Exists('packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
